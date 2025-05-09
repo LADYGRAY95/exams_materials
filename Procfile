@@ -1,0 +1,1 @@
+web: python mon_site.py
