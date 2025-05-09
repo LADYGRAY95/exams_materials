@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chapitres de devoir</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: #f5f7fa;
+            padding: 2rem;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+        h1, h2 {
+            text-align: center;
+            color: #123;
+        }
+        form {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-bottom: 2rem;
+        }
+        input {
+            padding: 0.6rem;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            width: 200px;
+        }
+        button {
+            padding: 0.6rem 1rem;
+            background-color: #006d5b;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: center;
+        }
+        th, td {
+            padding: 12px;
+            border-bottom: 1px solid #eee;
+        }
+        th {
+            background-color: #e5ecf1;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Ajouter un nouveau chapitre</h1>
+        <form method="POST" action="/add">
+            <input type="text" name="matiere" placeholder="Matière" required>
+            <input type="text" name="chapitre" placeholder="Chapitre de devoir" required>
+            <input type="text" name="auteur" placeholder="Auteur" required>
+            <button type="submit">Ajouter</button>
+        </form>
+
+        <h2>Liste des chapitres</h2>
+        <table>
+            <tr>
+                <th>Matière</th>
+                <th>Chapitre de devoir</th>
+                <th>Auteur</th>
+                <th>Date d'ajout</th>
+            </tr>
+            {% for row in data %}
+            <tr>
+                <td>{{ row[0] }}</td>
+                <td>{{ row[1] }}</td>
+                <td>{{ row[2] }}</td>
+                <td>{{ row[3] }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</body>
+</html>
