@@ -49,4 +49,5 @@ def add_chapitre():
 
 # Run the app
 if __name__ == '__main__':
+    init_db() 
     app.run(host='0.0.0.0', port=10000)
